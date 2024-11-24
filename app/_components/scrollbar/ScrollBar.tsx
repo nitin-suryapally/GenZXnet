@@ -5,10 +5,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 
-
-
 const ScrollBar = () => {
-
   const emailRef = useRef<HTMLParagraphElement>(null);
   const phoneRef = useRef<HTMLParagraphElement>(null);
 
@@ -24,13 +21,14 @@ const ScrollBar = () => {
     tl.fromTo(
       phoneRef.current,
       { x: -100, opacity: 0 },
-      { x: 0, opacity: 1, duration: 1, ease: "power2.out" },
-      "-=0.8"
+      { x: 0, opacity: 1, duration: 1, ease: "power2.out" }
     );
   });
 
   return (
-    <div className={`w-full flex flex-col md:flex-row md:items-end md:justify-end px-4 md:px-8 py-4 gap-4 md:gap-8 bg-[#2e2e2e] text-white font-mono}`}>
+    <div
+      className={`w-full flex flex-col md:flex-row md:items-end md:justify-end px-4 md:px-8 py-4 gap-4 md:gap-8 bg-[#2e2e2e] text-white font-mono}`}
+    >
       <Link href="mailto:contact@svteksystems.com">
         <p
           ref={emailRef}

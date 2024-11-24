@@ -16,13 +16,12 @@ const Hero = () => {
         .fromTo(
           textRef.current,
           { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
+          { opacity: 1, y: 0, duration: 1, ease: "power3.out", delay: 2 }
         )
         .fromTo(
           buttonRef.current,
           { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 1, ease: "power3.out" },
-          "-=0.5"
+          { opacity: 1, y: 0, duration: 1, ease: "power3.out" }
         );
     }
   }, []);
