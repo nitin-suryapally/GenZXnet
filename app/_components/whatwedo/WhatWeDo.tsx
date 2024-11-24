@@ -45,7 +45,7 @@ const WhatWeDo = () => {
   return (
     <div
       ref={sectionRef}
-      className="section-style flex flex-col lg:flex-row items-center lg:space-x-8 space-y-8 lg:space-y-0"
+      className="section-style flex flex-col lg:flex-row items-center lg:space-x-8 space-y-8 lg:space-y-0 overflow-hidden"
     >
      
       <div ref={headingRef} className="lg:w-1/2">

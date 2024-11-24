@@ -40,7 +40,7 @@ const ServiceCarousel: React.FC = () => {
   }, []);
 
   return (
-    <div className="container  mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16 text-center bg-gray-background">
+    <div className="container  mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-16 text-center bg-gray-background overflow-hidden">
       <h2 ref={headingRef} className="heading font-bold text-white mb-10">
         Our <span className="text-green-text">Services</span>
       </h2>

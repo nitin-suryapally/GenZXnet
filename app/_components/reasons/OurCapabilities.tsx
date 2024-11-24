@@ -65,7 +65,7 @@ const OurCapabilities = () => {
   }, []);
 
   return (
-    <div ref={sectionRef} className="section-style">
+    <div ref={sectionRef} className="section-style overflow-hidden">
       <div className="text-center mb-12">
         <h2 className="heading font-bold text-black mb-4">
           Our <span className="text-green-text">Capabilities</span>
