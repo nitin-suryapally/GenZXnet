@@ -1,6 +1,6 @@
 "use client";
 
-import React, {  useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -42,8 +42,9 @@ const ClientCarousel: React.FC = () => {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top bottom",
+          start: "top 80%",
           end: "bottom center",
+          scrub: true,
           toggleActions: "restart none reverse none",
         },
       });

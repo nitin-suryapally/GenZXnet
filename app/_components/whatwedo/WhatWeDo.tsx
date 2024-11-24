@@ -21,7 +21,7 @@ const WhatWeDo = () => {
           start: "top bottom",
           end: "bottom center",
           scrub: true,
-          toggleActions: "restart pause reverse pause",
+          toggleActions: "restart none none none",
         },
       });
 

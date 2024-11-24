@@ -29,9 +29,10 @@ const ServiceCarousel: React.FC = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: headingRef.current,
-            start: "top bottom",
-            end: "top 40%",
-            toggleActions: "restart pause reverse none",
+            start: "top 80%",
+            end: "top 50%",
+            scrub:true,
+            toggleActions: "restart none none none",
           },
         }
       );

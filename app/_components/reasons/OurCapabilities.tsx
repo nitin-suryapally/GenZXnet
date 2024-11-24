@@ -18,9 +18,9 @@ const OurCapabilities = () => {
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top bottom",
+          start: "top 80%",
           end: "bottom center",
-          toggleActions: "restart none reverse none",
+          toggleActions: "restart none none none",
         },
       });
 
@@ -58,7 +58,7 @@ const OurCapabilities = () => {
               delay: i * 0.2,
               ease: "power3.out",
             },
-            "-=0.5"
+            ""
           );
         }
       });
