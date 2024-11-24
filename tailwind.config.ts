@@ -11,6 +11,19 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        gray: {
+          primary: "#2e2e2e",
+          background: "#2e2e2e",
+        },
+        green: {
+          primary: "#61cb2c",
+          text: "#5fcc29",
+          button: "#67f81d",
+        },
+      },
+      fontFamily: {
+        sans: [`var(--font-merriweather)`],
+        mono: [`var(--font-montserrat)`],
       },
     },
   },
