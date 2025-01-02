@@ -11,7 +11,7 @@ export default function Home() {
       <WhatWeDo />
       <OurCapabilities />
       <ServiceCarousel />
-      <ClientCarousel />
+      {/* <ClientCarousel /> */}
     </main>
   );
 }

@@ -11,21 +11,20 @@ export const navItems: NavItem[] = [
   { title: "Home", href: "/" },
   {
     title: "About Us",
-    href: "/about",
-    subItems: [
-      { title: "Our Mission", href: "/about/mission" },
-      { title: "Our Team", href: "/about/team" },
-    ],
+    href: "/about_us",
   },
   {
     title: "Services",
     href: "/services",
     subItems: [
-      { title: "Service 1", href: "/services/service1" },
-      { title: "Service 2", href: "/services/service2" },
+      { title: "Application Development", href: "/service/application-development" },
+      { title: "Mobile App Development", href: "/service/mobile-app-development" },
+      { title: "Financial Services", href: "/service/financial-services" },
+      { title: "It Consulting", href: "/service/it-consulting" },
+      { title: "Staffing Services", href: "/service/staffing-services" },
     ],
   },
-  { title: "Staff Augmentation", href: "/staff-augmentation" },
+  // { title: "Staff Augmentation", href: "/staff-augmentation" },
   { title: "Careers", href: "/careers" },
   { title: "Contact Us", href: "/contact" },
 ];
@@ -43,25 +42,25 @@ export const capabilities: Capability[] = [
     icon: <FaRegHandshake />,
     title: "Unified platform.",
     description:
-      "The industry’s first end-to-end, self-serve retail media platform.",
+      "The first-of-its-kind, comprehensive self-service retail media solution.",
   },
   {
     icon: <FaChartBar />,
     title: "On-site monetization.",
     description:
-      "Industry-leading on-site retail media capabilities including sponsored, banners and brand pages.",
+      "Cutting-edge tools for on-site retail media, including sponsored products, banners, and branded pages.",
   },
   {
     icon: <FaNetworkWired />,
     title: "Off-site capabilities.",
     description:
-      "Industry-leading off-site reach across the open web driving increased sales on-site and in-store.",
+      "Advanced off-site solutions that drive increased sales both online and in physical stores.",
   },
   {
     icon: <FaFingerprint />,
     title: "Identity-led.",
     description:
-      "Unprecedented scale underpinned by 300M+ global privacy-protected CORE IDs.",
+      "Leveraging unmatched scale with over 300 million globally privacy-protected CORE IDs.",
   },
 ];
 
@@ -75,32 +74,33 @@ export interface Service {
 export const services: Service[] = [
   {
     id: 1,
-    title: "Financial Services",
-    description: "Professional financial consultancy and solutions.",
-    image: "/digital_marketing.jpg",
+    title: "Application Development",
+    description: "Innovative and tailored solutions for building dynamic applications.",
+    image: "/Application-Development.svg",
   },
   {
     id: 2,
-    title: "IT Consulting",
-    description: "Expert IT solutions tailored to your needs.",
-    image: "/it_consulting.jpg",
+    title: "Mobile App Development",
+    description: "Creating seamless and user-friendly mobile experiences for your business.",
+    image: "/Mobile-App-Development.svg",
   },
   {
     id: 3,
-    title: "Digital Marketing",
-    description: "Boost your brand with cutting-edge marketing strategies.",
-    image: "/mobile_application.jpg",
+    title: "Financial Services",
+    description: "Comprehensive financial strategies to enhance your business growth.",
+    image: "/Financial-Services.jpg",
   },
   {
     id: 4,
-    title: "Financial Services",
-    description: "Professional financial consultancy and solutions.",
-    image: "/software_testing.jpg",
+    title: "IT Consulting",
+    description: "Strategic IT guidance to help streamline operations and drive innovation.",
+    image: "/IT-Consulting.svg",
   },
   {
     id: 5,
-    title: "IT Consulting",
-    description: "Expert IT solutions tailored to your needs.",
-    image: "/it_consulting.jpg",
+    title: "Staffing Services",
+    description: "Connecting you with top-tier talent to meet your business needs.",
+    image: "/Staffing-Services.jpg",
   },
+
 ];

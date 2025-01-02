@@ -62,7 +62,7 @@ const Header = () => {
           )}
         </button>
 
-        <div ref={navLinksRef} className="hidden lg:block">
+        <div ref={navLinksRef} className="hidden lg:block z-50">
           <NavLinks />
         </div>
       </nav>

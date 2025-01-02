@@ -21,7 +21,7 @@ const NavLinks = () => {
   return (
     <nav className="flex flex-row items-center space-x-4 xl:space-x-8 text-white font-mono">
       {navItems.map((item: NavItem) => (
-        <div key={item.title} className="relative group" >
+        <div key={item.title} className="relative group " >
           <div
             onClick={() => item.subItems && toggleDropdown(item.title)}
             className="flex items-center px-4 py-2 rounded-md transition-all duration-300 cursor-pointer hover:text-green-500"
@@ -30,9 +30,8 @@ const NavLinks = () => {
               <span className="flex items-center space-x-2">
                 <span>{item.title}</span>
                 <svg
-                  className={`h-4 w-4 ml-2 transition-transform duration-300 ${
-                    openDropdown === item.title ? "rotate-180" : ""
-                  }`}
+                  className={`h-4 w-4 ml-2 transition-transform duration-300 ${openDropdown === item.title ? "rotate-180" : ""
+                    }`}
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -54,13 +53,12 @@ const NavLinks = () => {
 
           {item.subItems && (
             <div
-              className={`absolute top-full left-0 bg-black text-white shadow-md rounded-md mt-2 transition-all duration-300 ${
-                openDropdown === item.title
+              className={` w-[300px] absolute top-full left-0 bg-black text-white shadow-md rounded-md mt-2 transition-all duration-300 ${openDropdown === item.title
                   ? "opacity-100 visible"
                   : "opacity-0 invisible"
-              }`}
+                }`}
             >
-              <ul>
+              <ul className="">
                 {item.subItems.map((subItem) => (
                   <li key={subItem.title}>
                     <Link
