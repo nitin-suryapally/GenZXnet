@@ -24,7 +24,7 @@ export async function POST(req: Request) {
       html: `<p>Hello ${name},</p>
                    <p>We have received your email and will get back to you soon.</p>
                    <p>Best regards,</p>
-                   <p>GenZ XNet Team</p>`,
+                   <p>GenZXNet Team</p>`,
     });
 
     // Send User's Details to Company Emails
