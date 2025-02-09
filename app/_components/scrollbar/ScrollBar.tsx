@@ -29,7 +29,7 @@ const ScrollBar = () => {
     <div
       className={`w-full flex flex-col md:flex-row md:items-end md:justify-end px-4 md:px-8 py-4 gap-4 md:gap-8 bg-[#2e2e2e] text-white font-mono}`}
     >
-      <Link href="mailto:contact@svteksystems.com">
+      <Link href="mailto:contact@genzxnet.com">
         <p
           ref={emailRef}
           className="flex items-center gap-2 text-sm md:text-base"
@@ -45,7 +45,7 @@ const ScrollBar = () => {
               <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
             </svg>
           </span>
-          contact@svteksystems.com
+          contact@genzxnet.com
         </p>
       </Link>
 

@@ -38,20 +38,22 @@ const Sidebar = ({ toggleSidebar }: SidebarProps) => {
         {navItems.map((item: NavItem) => (
           <li key={item.title} className="relative w-full border-b-[1px] border-gray-300">
             <div
-              onClick={() => item.subItems && toggleDropdown(item.title)}
+              onClick={() => item.subItems && toggleDropdown(item.title) && toggleSidebar}
               className="flex items-center px-4 py-2 rounded-md transition-all duration-300 cursor-pointer hover:text-green-500"
             >
               {item.subItems ? (
                 <span className="flex items-center space-x-2">
                   <span>{item.title}</span>
                   <FaChevronDown
-                    className={`h-4 w-4 ml-2 transition-transform duration-300 ${
-                      openDropdown === item.title ? "rotate-180" : ""
-                    }`}
+                    className={`h-4 w-4 ml-2 transition-transform duration-300 ${openDropdown === item.title ? "rotate-180" : ""
+                      }`}
                   />
                 </span>
               ) : (
-                <Link href={item.href} className="flex items-center space-x-2">
+                <Link href={item.href} onClick={() => {
+                  toggleSidebar(); // Close the sidebar when clicking a nav link
+                  setOpenDropdown(null); // Close any open dropdown
+                }} className="flex items-center space-x-2">
                   <span>{item.title}</span>
                 </Link>
               )}
@@ -64,10 +66,14 @@ const Sidebar = ({ toggleSidebar }: SidebarProps) => {
                     <Link
                       href={subItem.href}
                       className="block px-4 py-2 hover:text-green-500"
-                      onClick={toggleSidebar}
+                      onClick={() => {
+                        toggleSidebar(); // Close the sidebar when clicking a nav link
+                        setOpenDropdown(null); // Close any open dropdown
+                      }}
                     >
                       {subItem.title}
                     </Link>
+
                   </li>
                 ))}
               </ul>

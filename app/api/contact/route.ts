@@ -1,119 +1,49 @@
-import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
-const SMTP_SERVER_HOST = process.env.SMTP_SERVER_HOST;
-const SMTP_SERVER_USERNAME = process.env.SMTP_SERVER_USERNAME;
-const SMTP_SERVER_PASSWORD = process.env.SMTP_SERVER_PASSWORD;
-const SITE_MAIL_RECIEVER = process.env.SITE_MAIL_RECIEVER;
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const transport = nodemailer.createTransport({
-  service: "gmail",
-  host: SMTP_SERVER_HOST,
-  port: 465, // Correct secure port for SMTP
-  secure: true,
-  auth: {
-    user: SMTP_SERVER_USERNAME,
-    pass: SMTP_SERVER_PASSWORD,
-  },
-});
-
-export async function POST(req: NextRequest) {
-  // Set CORS headers
-  if (req.method === "OPTIONS") {
-    return NextResponse.json(null, {
-      headers: {
-        "Access-Control-Allow-Origin": "*", // Update this to specific domains if needed
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
-      status: 204,
-    });
-  }
-
+export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { email, subject, text } = body;
+    const { name, email, phone, message } = await req.json();
 
-    // Validate request payload
-    if (!email || !subject || !text) {
+    if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Missing required fields" },
-        {
-          status: 400,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
+        { status: 400 }
       );
     }
 
-    // Verify SMTP connection
-    await transport.verify();
+    // console.log("name", name)
 
-    // Send email to site admin
-    const adminMailInfo = await transport.sendMail({
-      from: email,
-      to: SITE_MAIL_RECIEVER,
-      subject,
-      text,
+    // Send Confirmation Email to the User
+    await resend.emails.send({
+      from: "contact@genzxnet.com",
+      to: email,
+      subject: "We received your message!",
+      html: `<p>Hello ${name},</p>
+                   <p>We have received your email and will get back to you soon.</p>
+                   <p>Best regards,</p>
+                   <p>GenZ XNet Team</p>`,
     });
 
-    // Send confirmation email to user
-    const userMailInfo = await transport.sendMail({
-      from: SITE_MAIL_RECIEVER, // Use the site admin's email as the sender
-      to: email, // The user's email
-      subject: "Thank you for reaching out!",
-      text: `Hello,
-
-Thank you for reaching out to us! We have received your message and will get back to you as soon as possible.
-
-Here's a summary of your message:
-------------------------------
-${text}
-------------------------------
-
-Best regards,  
-[Your Company Name or Contact Team]`,
+    // Send User's Details to Company Emails
+    await resend.emails.send({
+      from: "contact@genzxnet.com", // Use user's email to make it clear who sent it
+      to: "archana@genzxnet.com",
+      subject: `New Contact Form Submission from ${name}`,
+      html: `<p><strong>Name:</strong> ${name}</p>
+                   <p><strong>Email:</strong> ${email}</p>
+                   <p><strong>Phone:</strong> ${phone || "N/A"}</p>
+                   <p><strong>Message:</strong> ${message}</p>`,
     });
 
-    return NextResponse.json(
-      {
-        message: "Messages sent successfully",
-        adminMessageId: adminMailInfo.messageId,
-        userMessageId: userMailInfo.messageId,
-      },
-      {
-        status: 200,
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
-    );
+    return NextResponse.json({ success: true });
   } catch (error) {
-    // Narrow down the type of error
-    if (error instanceof Error) {
-      console.error("Error sending email:", error.message); // Log the actual error message
-      return NextResponse.json(
-        { error: "Failed to send email", details: error.message },
-        {
-          status: 500,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      );
-    } else {
-      // Handle cases where the error is not an instance of Error
-      console.error("Unexpected error type:", error);
-      return NextResponse.json(
-        { error: "An unexpected error occurred" },
-        {
-          status: 500,
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-          },
-        }
-      );
-    }
+    console.error("Error sending emails:", error);
+    return NextResponse.json(
+      { error: "Failed to send emails" },
+      { status: 500 }
+    );
   }
 }

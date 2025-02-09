@@ -75,8 +75,9 @@ const ContactForm: React.FC = () => {
                 },
                 body: JSON.stringify({
                     email: form.email,
-                    subject: "New Contact Form Submission",
-                    text: `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nMessage: ${form.message}`,
+                    name: form.name,
+                    phone: form.phone,
+                    message: form.message,
                 }),
             });
 

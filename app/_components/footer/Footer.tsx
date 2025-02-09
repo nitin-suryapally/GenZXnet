@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
               <FaWhatsapp className="mr-2 text-lg" /> +1 (815) 5569495
             </p>
             <p className="flex items-center text-gray-300 mt-2">
-              <FaEnvelope className="mr-2 text-lg" /> contact@svteksystems.com
+              <FaEnvelope className="mr-2 text-lg" /> contact@genzxnet.com
             </p>
           </div>
 

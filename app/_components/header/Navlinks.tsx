@@ -53,20 +53,22 @@ const NavLinks = () => {
 
           {item.subItems && (
             <div
-              className={` w-[300px] absolute top-full left-0 bg-black text-white shadow-md rounded-md mt-2 transition-all duration-300 ${openDropdown === item.title
-                  ? "opacity-100 visible"
-                  : "opacity-0 invisible"
-                }`}
+              className={` w-[300px] z-50 absolute top-full left-0 text-white shadow-md rounded-md mt-2 transition-all duration-300 block ${openDropdown === item.title
+                ? "opacity-100 visible"
+                : "opacity-0 invisible"
+                } `}
             >
-              <ul className="">
+              <ul className="bg-black w-full ">
                 {item.subItems.map((subItem) => (
                   <li key={subItem.title}>
                     <Link
                       href={subItem.href}
                       className="block px-4 py-2 hover:text-green-500"
+                      onClick={() => setOpenDropdown(null)} // Close the dropdown when a sub-item is clicked
                     >
                       {subItem.title}
                     </Link>
+
                   </li>
                 ))}
               </ul>
