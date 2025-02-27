@@ -19,7 +19,7 @@ export const navItems: NavItem[] = [
     subItems: [
       { title: "Application Development", href: "/service/application-development" },
       { title: "Mobile App Development", href: "/service/mobile-app-development" },
-      { title: "Financial Services", href: "/service/financial-services" },
+      // { title: "Financial Services", href: "/service/financial-services" },
       { title: "It Consulting", href: "/service/it-consulting" },
       { title: "Staffing Services", href: "/service/staffing-services" },
     ],
@@ -84,12 +84,12 @@ export const services: Service[] = [
     description: "Creating seamless and user-friendly mobile experiences for your business.",
     image: "/Mobile-App-Development.svg",
   },
-  {
-    id: 3,
-    title: "Financial Services",
-    description: "Comprehensive financial strategies to enhance your business growth.",
-    image: "/Financial-Services.jpg",
-  },
+  // {
+  //   id: 3,
+  //   title: "Financial Services",
+  //   description: "Comprehensive financial strategies to enhance your business growth.",
+  //   image: "/Financial-Services.jpg",
+  // },
   {
     id: 4,
     title: "IT Consulting",

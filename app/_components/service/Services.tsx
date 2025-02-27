@@ -33,15 +33,15 @@ const services: Service[] = [
       "Creating seamless and user-friendly mobile experiences for your business. From design to deployment, we craft mobile apps that resonate with your audience and achieve your goals.",
     image: "/Mobile-App-Development.svg",
   },
-  {
-    id: 3,
-    title: "Financial Services",
-    overview:
-      "Comprehensive financial solutions designed to streamline business operations and optimize financial performance. We integrate strategic planning and cutting-edge tools to achieve exceptional results.",
-    description:
-      "Comprehensive financial strategies to enhance your business growth. Our services focus on improving efficiency, managing risks, and driving profitability.",
-    image: "/Financial-Services.jpg",
-  },
+  // {
+  //   id: 3,
+  //   title: "Financial Services",
+  //   overview:
+  //     "Comprehensive financial solutions designed to streamline business operations and optimize financial performance. We integrate strategic planning and cutting-edge tools to achieve exceptional results.",
+  //   description:
+  //     "Comprehensive financial strategies to enhance your business growth. Our services focus on improving efficiency, managing risks, and driving profitability.",
+  //   image: "/Financial-Services.jpg",
+  // },
   {
     id: 4,
     title: "IT Consulting",
